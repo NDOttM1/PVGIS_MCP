@@ -1,0 +1,33 @@
+[build-system]
+requires = ["hatchling>=1.24"]
+build-backend = "hatchling.build"
+
+[project]
+name = "pvgis-mcp"
+version = "0.1.0"
+description = "MCP-Server für PVGIS (JRC, Europäische Kommission): PV-Ertrag, Tracker, Horizont, TMY, Strahlung – PVGIS 6 Web API und PVGIS 5.3"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "NewDev Management GmbH" }]
+dependencies = [
+    "mcp>=1.10",
+    "httpx>=0.27",
+    "pydantic>=2.7",
+    "uvicorn>=0.30",
+    "starlette>=0.37",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8", "pytest-asyncio>=0.23", "respx>=0.21"]
+
+[project.scripts]
+pvgis-mcp = "pvgis_mcp.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["pvgis_mcp"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+markers = ["live: ruft die echten PVGIS-Server auf (nur mit PVGIS_LIVE=1)"]

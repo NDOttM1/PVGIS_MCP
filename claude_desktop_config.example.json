@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "pvgis": {
+      "command": "D:\\Python-Projekte\\PVGIS-MCP\\.venv\\Scripts\\pvgis-mcp.exe",
+      "args": [],
+      "env": {
+        "PVGIS_OUTPUT_DIR": "D:\\Python-Projekte\\PVGIS-MCP\\output",
+        "PVGIS_CSV_STYLE": "de"
+      }
+    }
+  }
+}
